@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+    <h1>Пользователи</h1>
+    <table>
+        <thead>
+            <tr><th> User ID </th><th> Имя </th><th> Email </th></tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr><td> {{ user.id }}</td><td>{{ user.name }} </td><td>{{ user.email }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <form action="/create_user">
+        <input type="submit" value="Добавить" />
+    </form>
+</body>
+</html>
