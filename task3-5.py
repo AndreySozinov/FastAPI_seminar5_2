@@ -58,7 +58,7 @@ async def create_user(user: UserForm):
     logger.info('Отработал POST запрос.')
 
 
-@app.put('/users/{user_id}', response_model=User, summary='Изменение данных пользователя')
+@app.put('/users/{user_id}', response_model=User, summary='Изменение данных пользователя', tags=['Users'])
 async def update_user(user_id: int, user: UserForm):
     for el in users:
         if el.id == user_id:
@@ -70,7 +70,7 @@ async def update_user(user_id: int, user: UserForm):
     raise HTTPException(status_code=404, detail='User with this ID not found')
 
 
-@app.delete('/users/{user_id}', summary='Удаление пользователя')
+@app.delete('/users/{user_id}', summary='Удаление пользователя', tags=['Users'])
 async def delete_user(user_id: int):
     for el in users:
         if el.id == user_id:
